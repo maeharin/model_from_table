@@ -1,0 +1,2 @@
+module ModelFromTable
+end
