@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = ModelFromTable::VERSION
   s.authors     = ["Hidenori Maehara"]
   s.email       = ["maeharin@gmail.com"]
-  s.homepage    = "http://d.hatena.ne.jp/maeharin/"
+  s.homepage    = "https://github.com/maeharin/model_from_table"
   s.summary     = "Rails generator for generating model from exsistent tables"
   s.description = "ModelFromTable is Rails generator for generating model from exsistent tables"
   s.license     = "MIT"
