@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 20140728150510) do
     t.string "name"
   end
 
+  create_table "song", primary_key: "song_code", force: true do |t|
+    t.integer "user_id"
+  end
+
   create_table "users", force: true do |t|
     t.string "name"
   end

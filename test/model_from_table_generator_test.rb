@@ -52,4 +52,16 @@ class ModelFromTableGeneratorTest < Rails::Generators::TestCase
       assert_match /end/, content
     end
   end
+
+  test "set `belongs_to :foo` if table has `foo_id` column" do
+    run_generator
+
+    assert_file 'app/models/song.rb' do |content|
+      assert_match /class Song < ActiveRecord::Base/, content
+      assert_match /self.table_name = "song"/, content
+      assert_match /self.primary_key = "song_code"/, content
+      assert_match /belongs_to :user/, content
+      assert_match /end/, content
+    end
+  end
 end

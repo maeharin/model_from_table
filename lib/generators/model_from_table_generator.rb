@@ -50,5 +50,13 @@ class ModelFromTableGenerator < Rails::Generators::Base
 
       @pk
     end
+
+    def belongs_to_syms
+      belongs_to_columns.map { |col| col.name.sub('_id', '').to_sym }
+    end
+
+    def belongs_to_columns
+      @connection.columns(table_name).select { |col| col.name =~ /^.*_id$/ }
+    end
   end
 end

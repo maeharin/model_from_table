@@ -12,5 +12,10 @@ class CreateTables < ActiveRecord::Migration
       t.primary_key:code
       t.string :name
     end
+
+    create_table :song, id: false do |t|
+      t.primary_key :song_code
+      t.integer :user_id
+    end
   end
 end
