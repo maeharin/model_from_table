@@ -77,3 +77,17 @@ class Song < ActiveRecord::Base
   belongs_to :user
 end
 ```
+
+## Options
+
+### specify parent class
+
+```
+$ rails generate model_from_table --parent MyClass::Base
+```
+
+```ruby
+# app/models/user.rb
+class User < MyClass::Base 
+end
+```

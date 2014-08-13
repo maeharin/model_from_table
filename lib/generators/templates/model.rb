@@ -1,4 +1,4 @@
-class <%= @resource.class_name %> < ActiveRecord::Base
+class <%= @resource.class_name %> < <%= parent_class_name.classify %>
 <%- if @resource.table_name_required? -%>
   self.table_name = "<%= @resource.table_name %>"
 <%- end -%>

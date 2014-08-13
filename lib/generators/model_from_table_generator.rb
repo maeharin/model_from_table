@@ -1,5 +1,6 @@
 class ModelFromTableGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
+  class_option :parent, type: :string, desc: "The parent class for the generated model"
 
   def create_model_file
     ignore_table_names = %w(schema_migrations)
@@ -13,6 +14,12 @@ class ModelFromTableGenerator < Rails::Generators::Base
       @resource = resource
       template "model.rb", resource.file_path
     end
+  end
+
+  private
+
+  def parent_class_name
+    options[:parent] || "ActiveRecord::Base"
   end
 
   class Resource

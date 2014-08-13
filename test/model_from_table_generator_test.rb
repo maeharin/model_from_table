@@ -64,4 +64,12 @@ class ModelFromTableGeneratorTest < Rails::Generators::TestCase
       assert_match /end/, content
     end
   end
+
+  test "generate with parent option" do
+    run_generator %w(--parent MyClass::Base)
+
+    assert_file 'app/models/user.rb' do |content|
+      assert_match /class User < MyClass::Base/, content
+    end
+  end
 end
